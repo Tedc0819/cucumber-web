@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+  dev-node:
+    build: 
+      context: .
+      dockerfile: Dockerfile-dev-node
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: tail -f /app/Dockerfile-dev-node
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+  hub:
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+    expose:
+      - "4444"
+  safari:
+    image: selenium/node-safari
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+  firefox:
+    image: selenium/node-firefox
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444
+  chrome:
+    image: selenium/node-chrome
+    environment:
+      - HUB_PORT_4444_TCP_ADDR=hub
+      - HUB_PORT_4444_TCP_PORT=4444

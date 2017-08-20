@@ -1,0 +1,18 @@
+{
+  "name": "testFramework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromedriver": "^2.31.0",
+    "cucumber": "2.3.0",
+    "cucumber-html-reporter": "^2.0.3",
+    "deep-extend": "^0.5.0",
+    "selenium-webdriver": "^3.5.0"
+  }
+}
