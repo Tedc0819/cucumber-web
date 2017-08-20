@@ -15,7 +15,8 @@ Please google how to install docker in your host
 4. run test. feel free to check package.json
 > NODE_ENV=local TEST_CLIENT=chrome npm run test
 
-#DEV REMARK
+DEV. REMARK
+-----------
 
 ## app
 1. App is a class handling the whole framework. Some key phases' implementation are also inside.
