@@ -9,12 +9,10 @@ Please google how to install docker in your host
 2. start the whole architecture
 > docker-compose up
 
-3. get inside the dev-node container
+3. get inside the dev-node container. e.g: docker exec -it cucumber_dev-node_1 /bin/bash
 > docker exec -it $(foldername)_dev-node_1 /bin/bash
-> e.g: docker exec -it cucumber_dev-node_1 /bin/bash
 
-4. run test 
-> //feel free to check package.json
+4. run test. feel free to check package.json
 > NODE_ENV=local TEST_CLIENT=chrome npm run test
 
 #DEV REMARK
