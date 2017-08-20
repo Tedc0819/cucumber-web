@@ -20,8 +20,8 @@ Please google how to install docker in your host
 
 5. if you need to restart everything. WARNING: this will stop all your containers. Be aware if you are using containers in other project
 
-    docker stop $(docker ps -q)
-    docker rm $(docker ps -a)
+    docker stop $(docker ps -a -q)
+    docker rm $(docker ps -a -q)
 
 DEV. REMARK
 -----------
