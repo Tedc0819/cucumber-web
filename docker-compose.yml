@@ -18,11 +18,6 @@ services:
       - "4444:4444"
     expose:
       - "4444"
-  safari:
-    image: selenium/node-safari
-    environment:
-      - HUB_PORT_4444_TCP_ADDR=hub
-      - HUB_PORT_4444_TCP_PORT=4444
   firefox:
     image: selenium/node-firefox
     environment:

@@ -5,5 +5,5 @@ Feature: Example feature
 
   Scenario: Reading documentation
     Given I am on the Cucumber.js GitHub repository
-    When I click on "CLI"
-    Then I should see "Running specific features"
+    When I click on CLI
+    Then I should see Running specific features
