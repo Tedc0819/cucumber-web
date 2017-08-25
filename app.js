@@ -3,6 +3,8 @@ let deepExtend = require('deep-extend');
 let Promise = require('bluebird')
 var colors = require('colors');
 var seleniumWebdriver = require('selenium-webdriver');
+var chrome = require('selenium-webdriver/chrome');
+var firefox = require('selenium-webdriver/firefox');
 
 class App {
 
@@ -50,7 +52,6 @@ class App {
   
     this.loadConfig()
     this.loadPage()
-    this.setupDriver()
 
   }
 
@@ -66,31 +67,25 @@ class App {
   
   }
 
-  setupDriver() {
+  initDriver() {
 
-  let server = this.config.server
-  let client = this.config.client[this.config.testClient]
+    let server = this.config.server
+    let client = this.config.client[this.config.testClient]
+    
+    let opts;
+
+    if (client.browser == 'chrome') { opts = new chrome.Options(); }
+
+    if (client.browser == 'firefox') { opts = new firefox.Options(); }
+
+    if (client.optsArguments) { opts.addArguments(client.optsArguments) }
 
     let driver = new seleniumWebdriver.Builder()
-        .forBrowser(client.browser)
+        .withCapabilities(opts.toCapabilities())
         .usingServer(`http://${server.host}:${server.port}/wd/hub`)
         .build()
 
-//  driver.on('status', function (info) {
-//    console.log(info.cyan);
-//  });
-//  driver.on('command', function (meth, path, data) {
-//    console.log(' > ' + meth.yellow, path.grey, data || '');
-//  });
-//  driver.on('http', function (meth, path, data) {
-//    console.log(' > ' + meth.magenta, path, (data || '').grey);
-//  });
-
     this.driver = driver
-
-  }
-
-  initDriver() {
 
     return this.driver
   

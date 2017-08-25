@@ -12,15 +12,9 @@ defineSupportCode(function({Before, After, setWorldConstructor, setDefaultTimeou
 
   After(function() {
 
-    return this.driver.quit();
+    return app.quitDriver();
 
   });
-  
-  setWorldConstructor(function() {
-  
-    this.driver = app.driver
-
-  })
 
 });
 
