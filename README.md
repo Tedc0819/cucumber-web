@@ -16,7 +16,7 @@ Please google how to install docker in your host
 
 4. run test. feel free to check package.json
 
-    NODE_ENV=local TEST_CLIENT=chrome npm run test
+    NODE_ENV=local TEST_CLIENT=chrome grunt test 
 
 5. if you need to restart everything. WARNING: this will stop all your containers. Be aware if you are using containers in other project
 
@@ -47,5 +47,10 @@ DEV. REMARK
 CHANGE LOG
 ==========
 
+21/9
+1. add Gruntfile. will use grunt for starting test
+
 20/8
 1. Alpha phase. basic framework structure. 
+
+
